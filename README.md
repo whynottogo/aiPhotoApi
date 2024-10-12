@@ -14,7 +14,7 @@
 
 **相关项目**：
 
-- 小程序前端请前往：https://github.com/no1xuan/photo
+- 小程序前端请前往：https://github.com/whynottogo/aiPhotoWechat
 - HivisionIDPhotos：https://github.com/Zeyi-Lin/HivisionIDPhotos
 
 <hr>

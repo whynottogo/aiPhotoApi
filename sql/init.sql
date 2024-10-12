@@ -988,3 +988,10 @@ CREATE TABLE `pic_info`
     `deleted`     tinyint(1) not null default 0 comment '是否删除',
     `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT '图片信息表';
+
+insert into division.pic_info (id, pic, info1, info2, info3, create_time, title, deleted)
+values  (1, './images/1.png', '选择能够使脖子显得修长的领子，优先推荐V领，尽量不选择圆领。', '穿衬衣，应该解开第一个扣子使脖子部分露出多一些。', '简单干净，避免花里胡哨。', '2024-10-11 14:54:01', '衣服选择', 0),
+        (2, './images/2.png', '妆容一定要简单自然大方，拒绝浓妆艳抹。', '发型以自然清爽为主。', '可以选择丸子头、高马尾或者普通直发等。', '2024-10-11 14:54:25', '造型选择', 0),
+        (3, './images/3.png', '微微抬起眼睛，看镜头上方3cm的地方，显得眼睛又大又有神。', '按快门的时候，深呼吸，会使脖子肌肉与锁骨的线条变得好看。', '藏住双下巴，稍微仰头，收紧肩胛骨。', '2024-10-11 14:54:53', '拍照技巧', 0);
+
+
