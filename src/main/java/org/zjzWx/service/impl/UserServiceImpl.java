@@ -2,12 +2,15 @@ package org.zjzWx.service.impl;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.util.StrUtil;
+import com.alibaba.cola.exception.BizException;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.zjzWx.dao.UserDao;
@@ -47,20 +50,30 @@ public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserSe
 
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public WxLoginVo wxlogin(String code) {
         WxLoginVo wxlogin = null;
-        try {
+
             WebSet webSet = webSetService.getById(1);
             //发起登录请求
             String url = "https://api.weixin.qq.com/sns/jscode2session?appid="+webSet.getAppId()
                     +"&secret="+webSet.getAppSecret()+"&js_code=" + code + "&grant_type=authorization_code";
             HttpClient http = new HttpClient(url);
             http.setHttps(true);
-            http.post();
-            String content = http.getContent();
+            String content;
+            try {
+                http.post();
+                content = http.getContent();
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new BizException("500", "登录失败");
+            }
             //格式化微信官方返回
             JSONObject jsonopenid = JSONObject.parseObject(content);
             String openid = jsonopenid.getString("openid");
+            if (StrUtil.isBlank(openid)) {
+                throw new BizException("500", "登录失败");
+            }
 
             QueryWrapper<User> qw = new QueryWrapper<>();
             qw.eq("openid",openid);
@@ -74,11 +87,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao,User> implements UserSe
             wxlogin = new WxLoginVo();
             wxlogin.setOpenid(openid);
             wxlogin.setToken(StpUtil.getTokenInfo().getTokenValue());
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return wxlogin;
     }
 
