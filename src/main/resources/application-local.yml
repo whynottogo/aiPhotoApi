@@ -83,7 +83,7 @@ webset:
   #图片路径
   directory: /Users/xiangnan/Downloads
   #图片存储服务器域名
-  picDomain: http://47.109.76.12/pic/
+  picDomain: https://qiqiqu.cn/pic/
   #鉴黄API地址
   safetyDomain: http://47.109.76.12:3006/
   #证件照APi地址

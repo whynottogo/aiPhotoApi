@@ -83,7 +83,7 @@ webset:
   #图片路径
   directory: /home/pic
   #图片存储服务器域名
-  picDomain: https://xn-api.icuzz.com/pic/
+  picDomain: https://qiqiqu.cn/pic/
   #鉴黄API地址
   safetyDomain: http://127.0.0.1:3006/
   #证件照APi地址
