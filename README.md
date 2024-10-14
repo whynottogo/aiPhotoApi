@@ -4,7 +4,7 @@
 
 # 项目介绍
 
-# <p align="center">证件照伴侣</p>
+# <p align="center">AI智能照</p>
 <p align="center">我给你的，就是我想要的，我爱你的方式，就是我希望被爱的方式.</p>
 <p align="center"><img src="./assets/1.png"></p>
 
@@ -16,6 +16,7 @@
 
 - 小程序前端请前往：https://github.com/whynottogo/aiPhotoWechat
 - HivisionIDPhotos：https://github.com/Zeyi-Lin/HivisionIDPhotos
+- 此项目原本二开项目地址：https://github.com/no1xuan/zjzWx
 
 <hr>
 <br>
@@ -103,18 +104,18 @@ uniapp多端兼容版：https://github.com/wmlcjj/AI-IDPhoto
 
 环境工作准备：
 
-1. 
+1.
 - jdk=1.8
 - mysql=8.0或5.7
 - redis=7.2.4或任意版本
 
-2. 
+2.
 - Mysql导入1.sql
 - 打开web_set表，配置app_id，app_secret，
 - 至此Mysql配置完毕
 
 3.
-- IDEA导入项目 
+- IDEA导入项目
 - 打开application.yml
 - 按下图进行一步步配置
 <p></p>
@@ -132,12 +133,16 @@ uniapp多端兼容版：https://github.com/wmlcjj/AI-IDPhoto
 <img src="./assets/6.png">
 
 
-
+#### 修改黑白图像API地址
+地址：https://github.com/paperClub-hub/ImageColorizations
+此项目API封装，可自己开发，也可联系此项目开发者索取
 
 
 ##### 修改图片存储地址：
 
 <img src="./assets/7.png">
+
+
 
 解释：
 
@@ -163,7 +168,10 @@ uniapp多端兼容版：https://github.com/wmlcjj/AI-IDPhoto
 
 鉴黄APi：http://121.62.63.137:3006/
 
-证件照APi:  http://121.62.63.137:8199/
+证件照APi:  http://47.109.76.12:8900/
+
+黑白照Api: http://47.109.76.12:8001/
+
 
 <hr>
 <br>
@@ -172,7 +180,7 @@ uniapp多端兼容版：https://github.com/wmlcjj/AI-IDPhoto
 
 # ⚡️注意
 
-1. 本项目使用IDEA打包后，会自动把打包后的jar包放入D:\jar2
+1. 本项目使用IDEA打包后，会自动把打包后的jar包放入./target/division.jar
 2. 鉴黄模型目前不怎么精准，建议在小程序过审时打开，其它时间关闭
 3. 部署自已鉴黄和证件照APi时，不建议开设外网，防止被抓接口后滥用，yml里面配置127.0.0.1即可本地链接，速度还快，还安全
 4. 为什么不把APi地址等参数放入数据库来配置？答：频繁使用的值，不建议与Mysql频繁握手
@@ -187,6 +195,6 @@ uniapp多端兼容版：https://github.com/wmlcjj/AI-IDPhoto
 
 您可以通过以下方式联系我:
 
-QQ: 24677102
+QQ: 43883407
 
-微信：webxuan
+微信：shynin
