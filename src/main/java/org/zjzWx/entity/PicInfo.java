@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @TableName("pic_info")
 public class PicInfo {
 
-    private long id;
+    private Long id;
 
     private String pic;
 

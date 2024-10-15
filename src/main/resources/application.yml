@@ -37,6 +37,15 @@ spring:
     username: root
     #如果你的密码是纯数字，需要用字符串包起了，只要纯数字需要这样
     password: Suadiahi@1.
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 3000
+      idle-timeout: 60000
+      login-timeout: 5
+      max-lifetime: 60000
+      maximum-pool-size: 20
+      minimum-idle: 5
+      read-only: false
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
